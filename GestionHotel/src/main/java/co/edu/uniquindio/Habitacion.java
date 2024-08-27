@@ -1,16 +1,22 @@
 package co.edu.uniquindio;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
 public class Habitacion {
     public int numeroHabitacion;
-    public String tipoHabitacion;
-    public double precioHabitacion;
-    public Servicio servicio;
+    public TipoDeHabitacion tipoDeHabitacion;
+    public Reserva reservaAsociada;
+    public ServicioSpa servicioSpaAsociado;
+    public ServicioRestaurante servicioRestauranteAsociado;
+    public ServicioLimpieza servicioLimpiezaAsociado;
+    public ServicioHabitacion servicioHabitacionAsociado;
+    public Collection<Servicio> serviciosAsociados;
 
-    public Habitacion(int numeroHabitacion, String tipoHabitacion, double precioHabitacion, Servicio servicio) {
+    public Habitacion(int numeroHabitacion, TipoDeHabitacion tipoDeHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
-        this.tipoHabitacion = tipoHabitacion;
-        this.precioHabitacion = precioHabitacion;
-        this.servicio = servicio;
+        this.tipoDeHabitacion = tipoDeHabitacion;
+        this.serviciosAsociados = new LinkedList<>();
     }
 
     public int getNumeroHabitacion() {
@@ -21,27 +27,12 @@ public class Habitacion {
         this.numeroHabitacion = numeroHabitacion;
     }
 
-    public String getTipoHabitacion() {
-        return tipoHabitacion;
+    public TipoDeHabitacion getTipoDeHabitacion() {
+        return tipoDeHabitacion;
     }
 
-    public void setTipoHabitacion(String tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
+    public void setTipoDeHabitacion(TipoDeHabitacion tipoDeHabitacion) {
+        this.tipoDeHabitacion = tipoDeHabitacion;
     }
 
-    public double getPrecioHabitacion() {
-        return precioHabitacion;
-    }
-
-    public void setPrecioHabitacion(double precioHabitacion) {
-        this.precioHabitacion = precioHabitacion;
-    }
-
-    public Servicio getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
-    }
 }

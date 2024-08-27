@@ -1,15 +1,17 @@
 package co.edu.uniquindio;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class Cliente {
     public String nombre;
     public String dni;
-    public Collection<Reserva> listReservas;
+    public Collection<Reserva> listReservasActivas;
 
     public Cliente(String nombre, String dni) {
         this.nombre = nombre;
         this.dni = dni;
+        this.listReservasActivas = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -29,10 +31,10 @@ public class Cliente {
     }
 
     public Collection<Reserva> getListReservas() {
-        return listReservas;
+        return listReservasActivas;
     }
 
     public void agregarReserva(Reserva reserva) {
-        listReservas.add(reserva);
+        listReservasActivas.add(reserva);
     }
 }

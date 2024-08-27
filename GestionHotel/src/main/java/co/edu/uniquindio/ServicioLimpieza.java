@@ -2,11 +2,11 @@ package co.edu.uniquindio;
 
 import javax.swing.*;
 
-public class ServicioSpa extends Servicio implements ISpa, IConsumible {
+public class ServicioLimpieza extends Servicio implements ILimpieza {
 
     public Habitacion habitacionAsociada;
 
-    public ServicioSpa(String descripcion, Habitacion habitacionAsociada) {
+    public ServicioLimpieza(String descripcion, Habitacion habitacionAsociada) {
         super(descripcion);
         this.habitacionAsociada = habitacionAsociada;
     }
@@ -30,12 +30,7 @@ public class ServicioSpa extends Servicio implements ISpa, IConsumible {
     }
 
     @Override
-    public void servicioSpa() {
-        JOptionPane.showMessageDialog(null, "Ofreciendo el servicio de spa...");
-    }
-
-    @Override
-    public void consumir() {
-        JOptionPane.showMessageDialog(null, "Consumiendo el servicio de spa...");
+    public void servicioLimpieza() {
+        JOptionPane.showMessageDialog(null, "Limpiando la habitacion...");
     }
 }

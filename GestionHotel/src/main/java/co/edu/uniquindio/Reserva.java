@@ -3,32 +3,32 @@ package co.edu.uniquindio;
 import java.time.LocalDate;
 
 public class Reserva {
-    public Cliente cliente;
-    public Habitacion habitacion;
+    public Cliente clienteAsociado;
+    public Habitacion habitacionAsociada;
     public LocalDate fechaEntrada;
     public LocalDate fechaSalida;
 
-    public Reserva(Cliente cliente, Habitacion habitacion, LocalDate fechaEntrada, LocalDate fechaSalida) {
-        this.cliente = cliente;
-        this.habitacion = habitacion;
+    public Reserva(Cliente clienteAsociado, Habitacion habitacionAsociada, LocalDate fechaEntrada, LocalDate fechaSalida) {
+        this.clienteAsociado = clienteAsociado;
+        this.habitacionAsociada = habitacionAsociada;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Cliente getClienteAsociado() {
+        return clienteAsociado;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(Cliente clienteAsociado) {
+        this.clienteAsociado = clienteAsociado;
     }
 
-    public Habitacion getHabitacion() {
-        return habitacion;
+    public Habitacion getHabitacionAsociada() {
+        return habitacionAsociada;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
+    public void setHabitacion(Habitacion habitacionAsociada) {
+        this.habitacionAsociada = habitacionAsociada;
     }
 
     public LocalDate getFechaEntrada() {
