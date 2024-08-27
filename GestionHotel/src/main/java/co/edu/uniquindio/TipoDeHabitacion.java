@@ -19,4 +19,6 @@ public enum TipoDeHabitacion {
     public void setPrecioPorNoche(double precioPorNoche) {
         this.precioPorNoche = precioPorNoche;
     }
+
+
 }

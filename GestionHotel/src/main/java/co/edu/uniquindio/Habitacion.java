@@ -1,5 +1,6 @@
 package co.edu.uniquindio;
 
+import java.time.Duration;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -33,6 +34,20 @@ public class Habitacion {
 
     public void setTipoDeHabitacion(TipoDeHabitacion tipoDeHabitacion) {
         this.tipoDeHabitacion = tipoDeHabitacion;
+    }
+
+    public double calcularPrecioTotal() {
+        long minutos = Duration.between(reservaAsociada.fechaEntrada, reservaAsociada.fechaSalida).toMinutes();
+        double dias = minutos / 10.0;
+        double precioTotal;
+        if(dias < 1) {
+            precioTotal = tipoDeHabitacion.getPrecioPorNoche();
+        }
+        else {
+            precioTotal = Math.ceil(dias) * tipoDeHabitacion.getPrecioPorNoche();
+        }
+
+        return precioTotal;
     }
 
 }
