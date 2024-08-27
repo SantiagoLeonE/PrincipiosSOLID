@@ -3,6 +3,8 @@ package co.edu.uniquindio;
 import javax.swing.JOptionPane;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.LinkedList;
 
 public class MainHotel {
 
@@ -29,6 +31,10 @@ public class MainHotel {
         Cliente cliente2 = new Cliente("Sofía", "24933814");
         Cliente cliente3 = new Cliente("Camilo", "1007813082");
 
+        hotel.agregarCliente(cliente1);
+        hotel.agregarCliente(cliente2);
+        hotel.agregarCliente(cliente3);
+
         Reserva reserva1 = new Reserva(cliente1, habitacion2, LocalDateTime.of(2024, 8, 27, 9, 0, 0), LocalDateTime.of(2024, 8, 27, 9, 30, 0));
         Reserva reserva2 = new Reserva(cliente2, habitacion1, LocalDateTime.of(2024, 8, 15, 10, 0, 0), LocalDateTime.of(2024, 8, 15, 10, 30, 0));
         Reserva reserva3 = new Reserva(cliente3, habitacion4, LocalDateTime.of(2024, 11, 23, 7, 0, 0), LocalDateTime.of(2024, 11, 23, 7, 30, 0));
@@ -48,11 +54,13 @@ public class MainHotel {
 
     public static void mostrarMenu() {
         String opcion = "0";
-        while(!opcion.equals("2")) {
+        while(!opcion.equals("4")) {
             String menu = """
                         Menú Gestión Hotel
                         1. Total a pagar por la estancia en el hotel
-                        2. Salir
+                        2. Obtener lista de habitaciones por un tipo determinado
+                        3. Obtener información del cliente por el dni
+                        4. Salir
                         """;
             opcion = JOptionPane.showInputDialog(null, menu, "Seleccione una opción", JOptionPane.QUESTION_MESSAGE);
 
@@ -61,6 +69,12 @@ public class MainHotel {
                     calcularPrecioTotalEstadiaCliente();
                     break;
                 case "2":
+                    obtenerListaTipoHabitacion();
+                    break;
+                case "3":
+                    obtenerInformacionClientePorDni();
+                    break;
+                case "4":
                     JOptionPane.showMessageDialog(null, "Saliendo...");
                     break;
                 default:
@@ -88,4 +102,38 @@ public class MainHotel {
         JOptionPane.showMessageDialog(null, "El total que debe pagar el cliente " + cliente1.getNombre() + " es: $" + precioTotal + " pesos");
     }
 
+    public static void obtenerListaTipoHabitacion() {
+        String tipoHabitacion = JOptionPane.showInputDialog(null, "Ingrese el tipo de habitación del lista: ");
+
+        TipoDeHabitacion tipoDeHabitacion = TipoDeHabitacion.valueOf(tipoHabitacion.toUpperCase());
+
+        Collection<Habitacion> nuevaLista = new LinkedList<>();
+        if(!hotel.getListHabitaciones().isEmpty()) {
+            for(Habitacion habitacion : hotel.getListHabitaciones()) {
+                if(habitacion.getTipoDeHabitacion() == tipoDeHabitacion) {
+                    nuevaLista.add(habitacion);
+                }
+            }
+            JOptionPane.showMessageDialog(null, nuevaLista);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No hay habitaciones en el hotel");
+        }
+    }
+
+    public static void obtenerInformacionClientePorDni() {
+        String dniCliente = JOptionPane.showInputDialog(null, "Ingrese el DNI: ");
+
+        if(!hotel.getListClientes().isEmpty()) {
+            for(Cliente cliente : hotel.getListClientes()) {
+                if(cliente.getDni().equals(dniCliente)) {
+                    JOptionPane.showMessageDialog(null, cliente.toString());
+                }
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No hay clientes en el hotel");
+        }
+    }
 }
+
