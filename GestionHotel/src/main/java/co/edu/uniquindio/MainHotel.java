@@ -15,6 +15,9 @@ public class MainHotel {
         mostrarMenu();
     }
 
+    /*
+     * Método para crear instancias de las clases
+     */
     public static void inicializarDatos() {
 
         Habitacion habitacion1 = new Habitacion(103, TipoDeHabitacion.SIMPLE);
@@ -52,6 +55,9 @@ public class MainHotel {
         habitacion4.agregarServicio(servicioSpa);
     }
 
+    /*
+     * Método para mostrar un menú interactivo
+     */
     public static void mostrarMenu() {
         String opcion = "0";
         while(!opcion.equals("4")) {
@@ -83,6 +89,9 @@ public class MainHotel {
         }
     }
 
+    /*
+     * Método para calcular el precio total de la estadía de un cliente
+     */
     public static void calcularPrecioTotalEstadiaCliente() {
         Habitacion habitacion1 = new Habitacion(103, TipoDeHabitacion.SIMPLE);
         Cliente cliente1 = new Cliente("Santiago", "1096670477");
@@ -102,6 +111,9 @@ public class MainHotel {
         JOptionPane.showMessageDialog(null, "El total que debe pagar el cliente " + cliente1.getNombre() + " es: $" + precioTotal + " pesos");
     }
 
+    /*
+     * Método para obtener una lista de habitaciones de un tipo determinado
+     */
     public static void obtenerListaTipoHabitacion() {
         String tipoHabitacion = JOptionPane.showInputDialog(null, "Ingrese el tipo de habitación del lista: ");
 
@@ -121,6 +133,9 @@ public class MainHotel {
         }
     }
 
+    /*
+     * Método para obtener la información de un cliente por el dni
+     */
     public static void obtenerInformacionClientePorDni() {
         String dniCliente = JOptionPane.showInputDialog(null, "Ingrese el DNI: ");
 
