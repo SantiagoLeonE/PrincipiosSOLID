@@ -1,14 +1,14 @@
 package co.edu.uniquindio;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Reserva {
     public Cliente clienteAsociado;
     public Habitacion habitacionAsociada;
-    public LocalDate fechaEntrada;
-    public LocalDate fechaSalida;
+    public LocalDateTime fechaEntrada;
+    public LocalDateTime fechaSalida;
 
-    public Reserva(Cliente clienteAsociado, Habitacion habitacionAsociada, LocalDate fechaEntrada, LocalDate fechaSalida) {
+    public Reserva(Cliente clienteAsociado, Habitacion habitacionAsociada, LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
         this.clienteAsociado = clienteAsociado;
         this.habitacionAsociada = habitacionAsociada;
         this.fechaEntrada = fechaEntrada;
@@ -31,19 +31,23 @@ public class Reserva {
         this.habitacionAsociada = habitacionAsociada;
     }
 
-    public LocalDate getFechaEntrada() {
+    public LocalDateTime getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public void setFechaEntrada(LocalDate fechaEntrada) {
+    public void setFechaEntrada(LocalDateTime fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public LocalDate getFechaSalida() {
+    public LocalDateTime getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(LocalDate fechaSalida) {
+    public void setFechaSalida(LocalDateTime fechaSalida) {
         this.fechaSalida = fechaSalida;
+    }
+
+    public String toString() {
+        return "Habitación: " + habitacionAsociada + ", Fecha de entrada: " + fechaEntrada + ", Fecha de salida: " + fechaSalida;
     }
 }

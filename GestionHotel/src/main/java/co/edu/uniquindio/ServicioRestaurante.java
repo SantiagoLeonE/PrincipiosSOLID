@@ -29,13 +29,17 @@ public class ServicioRestaurante extends Servicio implements IRestaurante, ICons
         this.habitacionAsociada = habitacion;
     }
 
-    @Override
-    public void servicioRestaurante() {
-        JOptionPane.showMessageDialog(null, "Ofreciendo el servicio de restaurante...");
+    public String toString() {
+        return descripcion;
     }
 
     @Override
-    public void consumir() {
-        JOptionPane.showMessageDialog(null, "Consumiendo el servicio del restaurante...");
+    public String servicioRestaurante() {
+        return "Ofreciendo el servicio de restaurante...";
+    }
+
+    @Override
+    public String consumir() {
+        return "Consumiendo el servicio del restaurante...";
     }
 }

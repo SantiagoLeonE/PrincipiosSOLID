@@ -37,4 +37,8 @@ public class Cliente {
     public void agregarReserva(Reserva reserva) {
         listReservasActivas.add(reserva);
     }
+
+    public String toString() {
+        return nombre + ", DNI: " + dni;
+    }
 }

@@ -1,6 +1,6 @@
 package co.edu.uniquindio;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class ServicioHabitacion extends Servicio implements IHabitacion, IConsumible {
 
@@ -29,13 +29,17 @@ public class ServicioHabitacion extends Servicio implements IHabitacion, IConsum
         this.habitacionAsociada = habitacion;
     }
 
-    @Override
-    public void servicioHabitacion() {
-        JOptionPane.showMessageDialog(null, "Ofreciendo el servicio de habitación...");
+    public String toString() {
+        return descripcion;
     }
 
     @Override
-    public void consumir() {
-        JOptionPane.showMessageDialog(null, "Consumiendo el servicio de la habitacion...");
+    public String servicioHabitacion() {
+        return "Ofreciendo el servicio de habitación...";
+    }
+
+    @Override
+    public String consumir() {
+        return "Consumiendo el servicio de la habitacion...";
     }
 }

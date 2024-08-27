@@ -12,12 +12,12 @@ public class Habitacion {
     public ServicioRestaurante servicioRestauranteAsociado;
     public ServicioLimpieza servicioLimpiezaAsociado;
     public ServicioHabitacion servicioHabitacionAsociado;
-    public Collection<Servicio> serviciosAsociados;
+    public Collection<Servicio> listServiciosAsociados;
 
     public Habitacion(int numeroHabitacion, TipoDeHabitacion tipoDeHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
         this.tipoDeHabitacion = tipoDeHabitacion;
-        this.serviciosAsociados = new LinkedList<>();
+        this.listServiciosAsociados = new LinkedList<>();
     }
 
     public int getNumeroHabitacion() {
@@ -36,18 +36,28 @@ public class Habitacion {
         this.tipoDeHabitacion = tipoDeHabitacion;
     }
 
-    public double calcularPrecioTotal() {
-        long minutos = Duration.between(reservaAsociada.fechaEntrada, reservaAsociada.fechaSalida).toMinutes();
-        double dias = minutos / 10.0;
-        double precioTotal;
-        if(dias < 1) {
-            precioTotal = tipoDeHabitacion.getPrecioPorNoche();
-        }
-        else {
-            precioTotal = Math.ceil(dias) * tipoDeHabitacion.getPrecioPorNoche();
-        }
+    public void agregarServicio(Servicio servicio) {
+        listServiciosAsociados.add(servicio);
+    }
 
-        return precioTotal;
+    public void agregarServicioSpa(ServicioSpa servicioSpa) {
+        servicioSpaAsociado = servicioSpa;
+    }
+
+    public void agregarServicioRestaurante(ServicioRestaurante servicioRestaurante) {
+        servicioRestauranteAsociado = servicioRestaurante;
+    }
+
+    public void agregarServicioLimpieza(ServicioLimpieza servicioLimpieza) {
+        servicioLimpiezaAsociado = servicioLimpieza;
+    }
+
+    public void agregarServicioHabitacion(ServicioHabitacion servicioHabitacion) {
+        servicioHabitacionAsociado = servicioHabitacion;
+    }
+
+    public String toString() {
+        return "Habitación: " + numeroHabitacion + ", Tipo de habitacion: " + tipoDeHabitacion + ", Servicios: " + listServiciosAsociados;
     }
 
 }

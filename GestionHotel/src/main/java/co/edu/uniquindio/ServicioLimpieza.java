@@ -29,8 +29,12 @@ public class ServicioLimpieza extends Servicio implements ILimpieza {
         this.habitacionAsociada = habitacion;
     }
 
+    public String toString() {
+        return descripcion;
+    }
+
     @Override
-    public void servicioLimpieza() {
-        JOptionPane.showMessageDialog(null, "Limpiando la habitacion...");
+    public String servicioLimpieza() {
+        return "Ofreciendo el servicio de limpieza...";
     }
 }

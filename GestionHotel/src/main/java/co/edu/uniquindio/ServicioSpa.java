@@ -29,13 +29,17 @@ public class ServicioSpa extends Servicio implements ISpa, IConsumible {
         this.habitacionAsociada = habitacion;
     }
 
-    @Override
-    public void servicioSpa() {
-        JOptionPane.showMessageDialog(null, "Ofreciendo el servicio de spa...");
+    public String toString() {
+        return descripcion;
     }
 
     @Override
-    public void consumir() {
-        JOptionPane.showMessageDialog(null, "Consumiendo el servicio de spa...");
+    public String servicioSpa() {
+        return "Ofreciendo el servicio de spa...";
+    }
+
+    @Override
+    public String consumir() {
+        return "Consumiendo el servicio de spa...";
     }
 }

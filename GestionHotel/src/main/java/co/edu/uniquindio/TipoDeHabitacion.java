@@ -4,7 +4,7 @@ public enum TipoDeHabitacion {
 
     SIMPLE(100000),
     DOBLE(190000),
-    SUIT(280000);
+    SUITE(280000);
 
     public double precioPorNoche;
 
